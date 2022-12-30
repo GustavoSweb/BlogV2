@@ -1,0 +1,22 @@
+<%- include('../../../views/partials/header')%>
+<body>
+<div class="container">
+  <hr>
+  <div class="card mt-5">
+    <div class="card-header">
+      <h3>Login</h3>
+      
+    </div>
+    <div class="card-body">
+      <form action="/authenticate" method="POST">
+        <label>Email:</label>
+        <input type="email" class="form-control" name="email" placeholder="Digite seu email"><br>
+        <label>Senha:</label>
+        <input type="password" name="password" class="form-control" placeholder="Digite sua senha"><br>
+        <button type="submit" class="btn btn-primary" style="width: 100%">Login</button>
+      </form>
+    </div>
+  </div>
+</div>
+</body>
+<%- include('../../../views/partials/footer')%>

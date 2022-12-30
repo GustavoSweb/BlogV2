@@ -20,5 +20,4 @@ Categorie.hasMany(Article) // uma categoria tem muitos artigos 1-p-M
 Article.belongsTo(Categorie) // um artigo tem uma categoria 1-p-1
 
 
-
 module.exports = Article;

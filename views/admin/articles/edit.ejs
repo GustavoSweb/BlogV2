@@ -1,0 +1,44 @@
+<%- include('../../../views/partials/header')%>
+<body>
+  <%- include('../../../views/partials/navbar')%>
+  <div class="container">
+    <hr>
+    <div class="card">
+      <div class="card-header">
+        <h2>Editar Artigo</h2>
+      </div>
+      <div class="card-body">
+        <form action="/article/update" method="POST">
+          <input type="text" name="title" placeholder="Digite o título" class="form-control" value="<%= article.title%>"><br>
+          <textarea name="body" id="article"><%-article.body%></textarea>
+          <select name="categoryId" class="form-select">
+            <% categories.forEach((category)=>{%>
+            <% if(category.id == article.categoryId){%>
+               <option value="<%=category.id%>" selected><%=category.title%></option>
+            
+            <%}else{%>
+            <option value="<%=category.id%>"><%=category.title%></option>
+            <%}%>
+            <%})%>
+            
+          </select>
+          <input type="hidden" name="id" value="<%= article.id%>">
+          
+          <button type="submit" class="btn btn-primary">Atualizar</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+</body>
+<%- include('../../../views/partials/footer')%>
+<script src="/tinymce/js/tinymce/tinymce.min.js"></script>
+<script>
+  tinymce.init({
+    language: 'pt_BR',
+    selector: "#article",
+    plugins:'image emoticons',
+    toolbar: 'undo redo | link image |emoticons| code | bold | italic |backcolor| alignleft | aligncenter | alignright | alignjustify  | blocks |fontsize |fontfamily | styles ',
+ 
+  })
+</script>

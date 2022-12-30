@@ -1,0 +1,26 @@
+<%- include('partials/header')%>
+<link rel="stylesheet" href="/css/style.css">
+<body>
+ <%- include('partials/homenavbar')%>
+ <div class="container">
+    <div id="jubon" class="bg-primary">
+      <h1>Bem Vindo!</h1>
+      <p>Um simples blog do guia do progamador </p>
+    </div>
+           <% articles.forEach((article)=> {%>
+           <br>
+           <div class="card">
+             <div class="card-header">
+              <h2>
+                <%= article.title%>
+              </h2> 
+             </div>
+             <div class="card-body">
+               <a href="/<%=article.slug%>" class="btn btn-outline-primary outline">Ler Artigo</a>
+             </div>
+           </div>
+        <%})%>
+ </div>
+
+</body>
+<%- include('partials/footer.ejs')%>

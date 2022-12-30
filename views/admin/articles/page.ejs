@@ -1,13 +1,9 @@
-<%- include('partials/header')%>
+<%- include('../../partials/header')%>
 <link rel="stylesheet" href="/css/style.css">
 <body>
- <%- include('partials/homenavbar')%>
+ <%- include('../../partials/homenavbar')%>
  <div class="container">
-    <div id="jubon" class="bg-primary">
-      <h1>Bem Vindo!</h1>
-      <p>Um simples blog do guia do progamador </p>
-    </div>
-           <% articles.rows.forEach((article)=> {%>
+           <% result.page.rows.forEach((article)=> {%>
            <br>
            <div class="card">
              <div class="card-header">
@@ -21,26 +17,37 @@
            </div>
         <%})%>
  </div>
- <nav aria-label="Page navigation example" style="float: right" class="mt-3 me-3">
+  <nav aria-label="Page navigation example" style="float: right" class="mt-3 me-3">
   <ul class="pagination">
+    <%if(result.num == 2){%>
     <li class="page-item">
-      <a class="page-link" href="#" aria-label="Previous">
+      <a class="page-link" href="/" aria-label="Previous">
         <span aria-hidden="true">&laquo;</span>
       </a>
     </li>
-    <% for(let x = 1; x<=articles.count/4+1;x++){%>
+    <%}else{%>
+    <li class="page-item">
+      <a class="page-link" href="/articles/page/<%= result.num-1%>" aria-label="Previous">
+        <span aria-hidden="true">&laquo;</span>
+      </a>
+    </li>
+    <%}%>
+    <% for(let x = 1; x<=result.page.count/4+1;x++){%>
     <%if(x == 1){%>
-    <li class="page-item"><a class="page-link" href="#"><%=x%></a></li>
+    <li class="page-item"><a class="page-link" href="/"><%=x%></a></li>
+    
     <%}else{%>
     <li class="page-item"><a class="page-link" href="/articles/page/<%=x%>"><%=x%></a></li>
     <%}%>
     <%}%>
+    <% if(result.next== true){%>
     <li class="page-item">
-      <a class="page-link" href="/articles/page/2" aria-label="Next">
+      <a class="page-link" href="/articles/page/<%= parseInt(result.num)+1%>" aria-label="Next">
         <span aria-hidden="true">&raquo;</span>
       </a>
     </li>
+    <%}%>
   </ul>
 </nav>
 </body>
-<%- include('partials/footer.ejs')%>
+<%- include('../../partials/footer.ejs')%>
