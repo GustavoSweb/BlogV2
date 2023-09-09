@@ -1,6 +1,6 @@
 const express = require('express')
 const Router = express.Router()
-const Category = require("./categories")
+const Category = require("./Categories")
 const Slugify = require("slugify")
 const adminAuth = require("../middleware/adminAuth")
 Router.get("/admin/categories/new",adminAuth, (req, res)=> {
