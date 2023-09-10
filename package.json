@@ -12,6 +12,7 @@
     "anymatch": "^3.1.2",
     "aproba": "^2.0.0",
     "pg": "^8.11.2",
+    "slugify": "1.6.6",
     "are-we-there-yet": "^2.0.0",
     "array-flatten": "^3.0.0",
     "async": "^3.2.4",
